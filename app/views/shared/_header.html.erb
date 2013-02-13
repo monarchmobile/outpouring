@@ -1,0 +1,26 @@
+<div class="full-width" id="top-nav">
+  <div class="container">
+    <ul class="left">
+      <% if user_signed_in? %>
+            <%= link_to content_tag(:li, "#{current_user.fullname}"), edit_user_registration_path %>
+      <% end %>
+    </ul>
+     
+    <ul class="left">
+      <%= content_tag :li, link_to("Home", home_path) %>
+      <%= content_tag :li, link_to("About", about_path) %>
+      
+       
+    </ul>
+        
+   <ul class="right">
+      <% if current_user %>
+          <%= content_tag :li, link_to("Logout", destroy_user_session_path, method: :delete) %>
+      <% else %>
+          <%= content_tag :li, link_to("Sign Up", new_user_registration_path) %>
+          <%= content_tag :li, link_to("Sign In", new_user_session_path) %>
+      <% end %>
+    </ul>
+    <br class="clear"/>
+  </div>
+</div>

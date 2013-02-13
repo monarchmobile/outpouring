@@ -9,6 +9,16 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+local_ENVs = File.expand_path('../application.yml', __FILE__)
+
+if File.exists?(local_ENVs)
+    config = YAML.load(File.read(local_ENVs))
+    config.merge! config.fetch(Rails.env, {})
+    config.each do |key, value|
+      ENV[key] = value unless value.kind_of? Hash
+    end
+end
+
 module Outpouring
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -58,5 +68,8 @@ module Outpouring
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.assets.initialize_on_precompile = false
+    config.action_mailer.default_url_options = { host: ENV["MAILER_HOST"] }
   end
 end
