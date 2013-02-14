@@ -1,3 +1,9 @@
+GIT
+  remote: http://github.com/rmagick/rmagick.git
+  revision: 962d56cba3a132d590be1dd062f2a3a2efa48545
+  specs:
+    rmagick (2.13.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,6 +42,9 @@ GEM
     binding_of_caller (0.6.8)
     builder (3.0.4)
     cancan (1.6.9)
+    carrierwave (0.8.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -132,12 +141,14 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   cancan
+  carrierwave
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
   meta_request
   pg
   rails (= 3.2.8)
+  rmagick (= 2.13.2)!
   sass-rails (~> 3.2.3)
   thin
   uglifier (>= 1.0.3)

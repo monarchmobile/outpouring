@@ -30,6 +30,8 @@ gem 'devise'
 gem 'cancan'
 gem 'jquery-rails'
 gem "thin"
+gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
+gem "carrierwave"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
