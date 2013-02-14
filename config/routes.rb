@@ -2,6 +2,7 @@ Outpouring::Application.routes.draw do
 
   match "home", to: "static_pages#home"
   match "about", to: "static_pages#about"
+  match "bible_study", to: "static_pages#bible_study"
 
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
