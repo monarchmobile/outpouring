@@ -1,3 +1,6 @@
+<div id="water">
+</div>
+  
 <div class="full-width" id="top-nav">
   <div class="container">
     <ul class="left">
@@ -18,7 +21,7 @@
       <% if current_user %>
           <%= content_tag :li, link_to("Logout", destroy_user_session_path, method: :delete) %>
       <% else %>
-          <%= content_tag :li, link_to("Sign Up", new_user_registration_path) %>
+          <%= content_tag :li, link_to("Create an Account", new_user_registration_path) %>
           <%= content_tag :li, link_to("Sign In", new_user_session_path) %>
       <% end %>
     </ul>
