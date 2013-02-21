@@ -3,7 +3,11 @@
 <head>
   <title>Outpouring</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "application" %>          
+  <% if "#{params[:controller]}##{params[:action]}" == "piggybak/orders#submit" -%>
+      <%= javascript_include_tag "piggybak/piggybak-application" %>
+  <% end -%>
+
   <%= csrf_meta_tags %>
 </head>
 <body>

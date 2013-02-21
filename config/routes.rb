@@ -1,5 +1,9 @@
 Outpouring::Application.routes.draw do
 
+  mount Piggybak::Engine => '/checkout', :as => 'piggybak'
+
+  
+
   
 
   

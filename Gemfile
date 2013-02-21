@@ -29,6 +29,7 @@ end
 gem 'devise'
 gem 'cancan'
 gem 'rails_admin'
+gem 'piggybak'
 gem 'jquery-rails'
 gem "thin"
 gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'

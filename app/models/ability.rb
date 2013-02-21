@@ -8,6 +8,10 @@ class Ability
       can :dashboard                  # allow access to dashboard
       if user.role? :superadmin
         can :manage, :all             # allow superadmins to do anything
+        can :manage, Piggybak.config.manage_classes.map(&:constantize)
+        Piggybak.config.extra_abilities.each do |extra_ability|
+          can extra_ability[:abilities], extra_ability[:class_name].constantize
+        end
       elsif user.role? :manager
         can :manage, [User, Product]  # allow managers to do anything to products and users
       elsif user.role? :sales
