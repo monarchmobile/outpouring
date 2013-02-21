@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on February 21, 2013 09:07
+# RailsAdmin config file. Generated on February 21, 2013 09:43
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
