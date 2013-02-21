@@ -1,19 +1,9 @@
 Outpouring::Application.routes.draw do
 
-  mount Piggybak::Engine => '/checkout', :as => 'piggybak'
-
-  
-
-  
-
-  
-
-  
-
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
-
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   
+  mount Piggybak::Engine => '/checkout', :as => 'piggybak'
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   match "home", to: "static_pages#home"
   match "about", to: "static_pages#about"

@@ -1,7 +1,8 @@
 class Ability
   include CanCan::Ability
+  
   def initialize(user)
-    can :read, :all 				  # allow everyone to read everything
+    # can :read, :all 				  # allow everyone to read everything
     user ||= User.new 				  # guest user              
     if user && user.admin?
       can :access, :rails_admin       # only allow admin users to access Rails Admin
