@@ -9,4 +9,14 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :last_name
   # attr_accessible :title, :body
+
+  def fullname
+  	[first_name, last_name].join(" ")
+  end
+
+  def fullname=(name)
+  	split = name.split(" ")
+  	first_name = split[0]
+  	last_name = split[1]
+  end
 end
