@@ -48,13 +48,17 @@ br.clear{
 p, ol, ul, td, li {
   font-family: $s_font;
   font-size: 13px;
+  margin:0px;
 }
 
-p img {
-  margin: 10px;
-  border: 3px solid $p_color;
-  box-shadow: 0 0 5px;
-  border-radius: 10px;
+p {
+
+  img {
+    margin: 10px;
+    border: 3px solid $p_color;
+    box-shadow: 0 0 5px;
+    border-radius: 10px;
+  }
 }
 
 ul{
@@ -153,6 +157,21 @@ h1 {
   }
 }
 
+.container p.email {
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 0 2px inset;
+  float: right;
+  margin-top: -7px;
+  padding: 11px 10px 5px;
+  width: auto;
+  img{
+     margin: -4px 4px 0 0;
+  }
+  a:hover{
+    opacity: .8;
+  }
+}
+
 .main {
     background: transparent url(white-opac.png) 0 0 repeat;
     padding: 40px 10px 40px 10px;
@@ -248,4 +267,13 @@ h1 {
   h3 {
     margin-bottom: 3px;
   }
+  a:hover {
+    opacity: .8;
+  }
+}
+
+img.ns {
+  border-radius: 0px;
+  border:none;
+  box-shadow: none;
 }
