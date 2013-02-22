@@ -1,5 +1,9 @@
 Outpouring::Application.routes.draw do
 
+  resources :articles do
+    resources :comments
+  end
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
   
   mount Piggybak::Engine => '/checkout', :as => 'piggybak'
