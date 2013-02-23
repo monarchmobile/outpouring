@@ -1,17 +1,15 @@
-<% div_for comment do %>
-  <p>
-  <p>
-    <b>Name:</b>
-    <%= comment.name %>
+<%= div_for comment do %>
+  <p class="author">
+    <b><%= comment.name %></b>
+    said:
   </p>
 
-  <p>
+  <!-- <p>
     <b>Email:</b>
     <%= comment.email %>
-  </p>
+  </p> -->
 
   <p>
-    <b>Body:</b>
     <%= comment.body %>
   </p>
 
