@@ -72,6 +72,7 @@ ul{
 
 li{
   list-style-type: none;
+  margin: 5px;
   a {
     display: block;
     height: 100%;
@@ -193,7 +194,7 @@ label {
 
 .main {
     background: transparent url(white-opac.png) 0 0 repeat;
-    padding: 40px 10px 40px 10px;
+    padding: 1px 10px 40px 10px;
     box-shadow: 0 0 13px -4px;
     min-height: 700px;
     p {
