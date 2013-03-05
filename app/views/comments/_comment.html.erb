@@ -13,6 +13,6 @@
     <%= comment.body %>
   </p>
 
-<%= link_to 'Edit', edit_article_comment_path(@article, comment) %> |
-<%= link_to 'Delete', article_comment_path(@article, comment), :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'Edit', [@article, comment] %> |
+<%= link_to 'Delete', [@article, comment], :confirm => 'Are you sure?', :method => :delete %>
 <% end %>

@@ -1,20 +1,6 @@
-<%= form_for(@comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%= form_for [@article, @comment] do |f| %>
+  <%= render 'shared/errors', object: @comment %>
 
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :article_id %><br />
-    <%= f.number_field :article_id %>
-  </div>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
@@ -31,3 +17,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
