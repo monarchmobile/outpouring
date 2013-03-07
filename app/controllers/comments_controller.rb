@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
 def create
-  @article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     @comment = @article.comments.build(params[:comment])
     respond_to do |format|
       if @comment.save
