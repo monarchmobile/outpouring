@@ -3,8 +3,8 @@ class Ability
   
   def initialize(user)
     can :read, :all 				  # allow everyone to read everything
-    user ||= User.new 				  # guest user              
-    if user.role? :Admin
+    user ||= User.new 				            
+    if user.role? :Admin      ### ADMIN ###
       can :manage, :all
       can :publish, Article
       can :dashboard
@@ -17,13 +17,14 @@ class Ability
       Piggybak.config.extra_abilities.each do |extra_ability|
         can extra_ability[:abilities], extra_ability[:class_name].constantize
       end
-    elsif user.role? :Moderator
+    elsif user.role? :Moderator   ### MODERATOR ###
       can :read, [Article, Comment]
-      can [:edit, :update], Comment
-    elsif user.role? :Member
+      can :publish, Article
+      can [:create, :edit, :update], [Comment, Article]
+    elsif user.role? :guest       ### GUEST ###
        can :read, :all
-       can :create, [Article, Comment]
-       can [:edit, :update], Comment
-    end
+       can :create, Comment   
+       # can [:edit, :update], 
+     end
   end
 end
