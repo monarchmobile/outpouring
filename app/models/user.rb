@@ -10,10 +10,11 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :role, :admin
   # attr_accessible :title, :body
 
-  ROLES = %w[superadmin manager]
+  has_and_belongs_to_many :roles
+  before_create :setup_role
 
   def role?(role)
-    ROLES.include?(role.to_s)
+   return !!self.roles.find_by_name(role.to_s)
   end
 
   def fullname
@@ -24,5 +25,12 @@ class User < ActiveRecord::Base
   	split = name.split(" ")
   	first_name = split[0]
   	last_name = split[1]
+  end
+
+  private
+  def setup_role
+    if self.role_ids.empty?
+      self.role_ids = [3]
+    end
   end
 end
