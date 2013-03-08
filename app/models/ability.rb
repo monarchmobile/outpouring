@@ -2,10 +2,11 @@ class Ability
   include CanCan::Ability
   
   def initialize(user)
-    can :read, :all 				  # allow everyone to read everything
-    user ||= User.new 				            
+    can :read, :all           # allow everyone to read everything
+    user ||= User.new                     
     if user.role? :Admin      ### ADMIN ###
       can :manage, :all
+      can :assign_roles, User
       can :publish, Article
       can :dashboard
       can :access, :rails_admin
@@ -21,7 +22,7 @@ class Ability
       can :read, [Article, Comment]
       can :publish, Article
       can [:create, :edit, :update], [Comment, Article]
-    elsif user.role? :guest       ### GUEST ###
+    elsif user.role? :Guest       ### GUEST ###
        can :read, :all
        can :create, Comment   
        # can [:edit, :update], 

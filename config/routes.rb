@@ -4,7 +4,8 @@ Outpouring::Application.routes.draw do
     resources :comments
   end
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { :registrations => "users/registrations" }
+
   
   mount Piggybak::Engine => '/checkout', :as => 'piggybak'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
