@@ -7,8 +7,12 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    @article = Article.find(1)
+    @comment = @article.comments.build
   end
 
   def bible_study
+    @article = Article.find(1)
+    @comment = @article.comments.build
   end
 end

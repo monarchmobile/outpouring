@@ -18,11 +18,22 @@
     	<%= content_tag :div, msg, id: "flash_#{name}" %>
   	<% end %>
   	<div class="container main">
-      <div class="logo">
-      <%= image_tag 'logo3.png' %>
-      </div>
-  		  <%= yield %>
+        <div class="logo">
+          <%= image_tag 'logo3.png',size: "250x250"%>
+        </div>
+
+      <div class="main_col">
+        <%= yield %>
         <br class="clear"/>
+      </div> 
+
+      
+      <div class="sidebar">
+        <% if params[:controller] =='static_pages' %>
+            <%= render'shared/sidebar' %>
+        <% end %> 
+      </div>
+      <br class="clear"/>
   	</div>
  	  
   <%= render "shared/footer" %>

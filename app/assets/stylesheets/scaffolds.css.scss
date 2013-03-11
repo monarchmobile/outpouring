@@ -264,12 +264,13 @@ label {
 
 }
 
-.home-main {
+.main_col {
   float: right;
   width: 655px;
+  min-height: 304px;
 }
 
-.home-sidebar{
+.sidebar{
   border-radius: 10px 10px 10px 10px;
   box-shadow: 5px -4px 10px -7px;
   float: left;
