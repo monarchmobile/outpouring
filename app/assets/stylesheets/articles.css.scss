@@ -3,15 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .comment {
-	background-color: tan;
-    border: 2px groove tan;
+	background-color: #c89869;
+    border: 2px groove #c89869;
     border-radius: 20px 20px 20px 20px;
     margin-bottom: 30px;
     padding: 20px;
 }
 
 #comment_body {
-	background-color: tan;
+	background-color: #c89869;
     border-radius: 20px 20px 20px 20px;
     color: white;
     font-family: sans-serif;
@@ -22,7 +22,7 @@
 }
 
 #new_comment {
-	border-top: 2px dashed tan;
+	border-top: 2px dashed #c89869;
     padding-top: 5px;
 }
 
