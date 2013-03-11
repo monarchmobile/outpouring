@@ -2,9 +2,9 @@
 
 <h1><%= @article.title %></h1>
 
-<p>
-  <%= @article.body %>
-</p>
+
+  <%= raw @article.body %>
+
 
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
