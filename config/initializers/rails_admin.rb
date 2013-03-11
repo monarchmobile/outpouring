@@ -53,7 +53,7 @@ RailsAdmin.config do |config|
       field :title
       field :slug
       field :description
-      field :piggybak_sellable
+      # field :piggybak_sellable
       include_all_fields
     end
   end
