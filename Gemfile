@@ -31,7 +31,7 @@ gem 'cancan'
 gem 'rails_admin'
 gem 'piggybak'
 gem "piggybak_taxonomy", '0.0.7'
-gem "piggybak_variants", '0.0.11'
+gem "piggybak_variants", '0.0.13'
 
 gem 'jquery-rails'
 gem "thin"

@@ -128,7 +128,7 @@ GEM
       ancestry
       piggybak_rails_admin_nestable
       rails (~> 3.2.8)
-    piggybak_variants (0.0.11)
+    piggybak_variants (0.0.13)
       rails (~> 3.2.3)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -219,7 +219,7 @@ DEPENDENCIES
   pg
   piggybak
   piggybak_taxonomy (= 0.0.7)
-  piggybak_variants (= 0.0.11)
+  piggybak_variants (= 0.0.13)
   rails (= 3.2.8)
   rails_admin
   rmagick (= 2.13.2)!
