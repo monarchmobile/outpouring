@@ -25,13 +25,13 @@ RailsAdmin.config do |config|
     show_in_app
 
     # Add the nestable action for each model
-    if nestable
+    
       nestable do
         visible do
           [::PiggybakTaxonomy::NavigationNode].include? bindings[:abstract_model].model
         end
       end
-    end
+    
   end
 
   ###############
