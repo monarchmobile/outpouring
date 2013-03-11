@@ -298,3 +298,15 @@ img.ns {
   border:none;
   box-shadow: none;
 }
+
+.error {
+  background-color: #f80033;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  margin-top: 10px;
+  text-align: center;
+  p {
+      padding:10px;
+  }
+}

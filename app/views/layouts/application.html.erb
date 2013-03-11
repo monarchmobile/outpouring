@@ -14,15 +14,22 @@
   
 	<%= render "shared/header" %>
 
-  	<% flash.each do |name, msg| %>
-    	<%= content_tag :div, msg, id: "flash_#{name}" %>
-  	<% end %>
+  	
   	<div class="container main">
         <div class="logo">
           <%= image_tag 'logo3.png',size: "250x250"%>
         </div>
 
       <div class="main_col">
+        <div class="error">
+          
+          <% flash.each do |name, msg| %>
+            <%= content_tag :p, msg, id: "flash_#{name}" %>
+  
+          <% end %>
+
+        </div>
+
         <%= yield %>
         <br class="clear"/>
       </div> 
