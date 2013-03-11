@@ -25,13 +25,14 @@ RailsAdmin.config do |config|
     show_in_app
 
     # Add the nestable action for each model
-    nestable do
-      visible do
-        [::PiggybakTaxonomy::NavigationNode].include? bindings[:abstract_model].model
+    
+      nestable do
+        visible do
+          [::PiggybakTaxonomy::NavigationNode].include? bindings[:abstract_model].model
+        end
       end
-    end
+    
   end
-
 
   ###############
 
@@ -52,7 +53,7 @@ RailsAdmin.config do |config|
       field :title
       field :slug
       field :description
-      field :piggybak_sellable
+      # field :piggybak_sellable
       include_all_fields
     end
   end
@@ -62,6 +63,17 @@ RailsAdmin.config do |config|
       field :email
       field :fullname
     end
+  end
+
+  config.model Article do
+    navigation_label "Outpouring Application"
+    list do
+      include_all_fields
+    end
+    edit do
+      include_all_fields
+    end
+
   end
   config.model Role do
     navigation_label "Outpouring Application"

@@ -6,9 +6,9 @@ Outpouring::Application.routes.draw do
   end
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { :registrations => "users/registrations" }
-
-  mount Piggybak::Engine => '/checkout', :as => 'piggybak'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  mount Piggybak::Engine => '/checkout', :as => 'piggybak'
+  
 
   match "home", to: "static_pages#home"
   match "about", to: "static_pages#about"

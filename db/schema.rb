@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130308185746) do
+ActiveRecord::Schema.define(:version => 20130311142428) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(:version => 20130308185746) do
     t.string   "description",                                   :default => "",         :null => false
     t.string   "line_item_type",                                :default => "sellable", :null => false
   end
+
+  create_table "navigation_nodes", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.string   "position"
+    t.string   "ancestry"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "navigation_nodes", ["ancestry"], :name => "index_navigation_nodes_on_ancestry"
 
   create_table "option_configurations", :force => true do |t|
     t.string   "klass",      :null => false
@@ -176,6 +187,12 @@ ActiveRecord::Schema.define(:version => 20130308185746) do
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
+  end
+
+  create_table "sellable_taxonomies", :force => true do |t|
+    t.integer "navigation_node_id",                :null => false
+    t.integer "sellable_id",                       :null => false
+    t.integer "sort",               :default => 0, :null => false
   end
 
   create_table "sellables", :force => true do |t|
