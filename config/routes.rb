@@ -1,4 +1,5 @@
 Outpouring::Application.routes.draw do
+  resources :products
 
   resources :articles do
     resources :comments
@@ -6,7 +7,6 @@ Outpouring::Application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { :registrations => "users/registrations" }
 
-  
   mount Piggybak::Engine => '/checkout', :as => 'piggybak'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
@@ -14,8 +14,6 @@ Outpouring::Application.routes.draw do
   match "about", to: "static_pages#about"
   match "bible_study", to: "static_pages#bible_study"
 
-
-  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

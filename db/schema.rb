@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130307183848) do
+ActiveRecord::Schema.define(:version => 20130308185746) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -69,6 +69,33 @@ ActiveRecord::Schema.define(:version => 20130307183848) do
     t.string   "line_item_type",                                :default => "sellable", :null => false
   end
 
+  create_table "option_configurations", :force => true do |t|
+    t.string   "klass",      :null => false
+    t.integer  "option_id",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "option_values", :force => true do |t|
+    t.integer  "option_id"
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "option_values_variants", :id => false, :force => true do |t|
+    t.integer "option_value_id"
+    t.integer "variant_id"
+  end
+
+  create_table "options", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "order_notes", :force => true do |t|
     t.integer  "order_id",   :null => false
     t.integer  "user_id",    :null => false
@@ -117,6 +144,14 @@ ActiveRecord::Schema.define(:version => 20130307183848) do
     t.datetime "updated_at",                            :null => false
     t.string   "masked_number"
     t.integer  "line_item_id"
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -226,5 +261,12 @@ ActiveRecord::Schema.define(:version => 20130307183848) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "variants", :force => true do |t|
+    t.integer  "item_id",    :null => false
+    t.string   "item_type",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
