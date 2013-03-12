@@ -60,6 +60,9 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    ckeditor (4.0.2)
+      mime-types
+      orm_adapter
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -107,6 +110,8 @@ GEM
       rack-contrib
       rails
     mime-types (1.20.1)
+    mini_magick (3.5.0)
+      subexec (~> 0.2.1)
     money (5.1.0)
       i18n (~> 0.6.0)
     multi_json (1.5.0)
@@ -188,6 +193,7 @@ GEM
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    subexec (0.2.2)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -212,10 +218,12 @@ DEPENDENCIES
   binding_of_caller
   cancan
   carrierwave
+  ckeditor
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
   meta_request
+  mini_magick
   pg
   piggybak
   piggybak_taxonomy (= 0.0.7)

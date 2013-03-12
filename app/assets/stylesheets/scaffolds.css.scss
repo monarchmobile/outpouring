@@ -282,6 +282,12 @@ label {
   float: right;
   width: 655px;
   min-height: 304px;
+  h2 {
+    border-top: 2px dashed tan;
+    clear: both;
+    padding: 30px;
+    text-align: center;
+  }
 }
 
 .sidebar{
