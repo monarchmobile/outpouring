@@ -1,4 +1,6 @@
 Outpouring::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   resources :products
 
   resources :articles do
