@@ -1,18 +1,15 @@
-<%= div_for comment do %>
-  <p class="author">
-    <b><%= comment.name %></b>
-    said:
-  </p>
+<% if comment.body %>
+  <div class="comment">
+    <p class="author">
+      <b><%= comment.name %></b>
+      said:
+    </p>
 
-  <!-- <p>
-    <b>Email:</b>
-    <%= comment.email %>
-  </p> -->
+    <p>
+      <%= comment.body %>
+    </p>
 
-  <p>
-    <%= comment.body %>
-  </p>
-
-<%= link_to 'Edit', [@article, comment] %> |
-<%= link_to 'Delete', [@article, comment], :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Edit', [@article, comment] %> |
+    <%= link_to 'Delete', [@article, comment], :confirm => 'Are you sure?', :method => :delete %>
+  </div>
 <% end %>
