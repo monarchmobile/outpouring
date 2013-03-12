@@ -38,6 +38,7 @@ gem "thin"
 gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
 gem "carrierwave"
 gem "ckeditor"
+gem "mini_magick"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

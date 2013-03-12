@@ -17,6 +17,7 @@ Outpouring::Application.routes.draw do
   match "bible_study", to: "static_pages#bible_study"
 
 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
