@@ -10,12 +10,13 @@ class PagesController < ApplicationController
 
 	def show 
 		find_page
-		@article = Article.find(1)
-    	@comment = @article.comments.build
+		grab_posts
+		
 	end
 
 	def edit 
 		find_page
+		grab_posts
 	end
 
 	def create 
@@ -53,6 +54,11 @@ class PagesController < ApplicationController
 
 	def find_page 
 		@page = Page.find(params[:id])
+	end
+
+	def grab_posts
+		@article = Article.find(1)
+    	@comment = @article.comments.build
 	end
 
 end
