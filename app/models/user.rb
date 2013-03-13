@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   before_create :setup_role
   acts_as_orderer
 
+  
+
   def role?(role)
    return !!self.roles.find_by_name(role.to_s)
   end
