@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312161200) do
+ActiveRecord::Schema.define(:version => 20130313142518) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -145,6 +145,15 @@ ActiveRecord::Schema.define(:version => 20130312161200) do
     t.string   "ip_address"
     t.string   "user_agent"
     t.boolean  "to_be_cancelled",                                    :default => false
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.boolean  "published",  :default => false
+    t.string   "slug"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "payment_method_values", :force => true do |t|
