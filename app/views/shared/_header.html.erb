@@ -21,7 +21,7 @@
         
    <!-- <ul class="right">
       <% if current_user %>
-          <%= content_tag :li, link_to("Logout", destroy_user_session_path, method: :delete) %>
+          <%= content_tag :li, link_to("Logout", destroy_user_session_path, :method => :delete) %>
       <% else %>
           <%= content_tag :li, link_to("Create an Account", new_user_registration_path) %>
           <%= content_tag :li, link_to("Sign In", new_user_session_path) %>

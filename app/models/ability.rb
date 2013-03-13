@@ -8,7 +8,6 @@ class Ability
     # Performed checks for actions:
     can [:read, :create, :destroy], Ckeditor::Picture
     can [:read, :create, :destroy], Ckeditor::AttachmentFile
-    
     can :read, :all 
     can [:create], User
               # allow everyone to read everything

@@ -8,8 +8,9 @@
     <p>
       <%= comment.body %>
     </p>
+    
 
-    <%= link_to 'Edit', [@article, comment] %> |
-    <%= link_to 'Delete', [@article, comment], :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to 'Edit | ', [@article, comment]  if can? :edit, comment %>
+    <%= link_to 'Delete', [@article, comment], :confirm => 'Are you sure?', :method => :delete if can? :edit, comment %>
   </div>
 <% end %>
