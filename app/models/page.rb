@@ -3,8 +3,6 @@ class Page < ActiveRecord::Base
   before_create :make_slug
   # validates :slug, :uniqueness => true
 
-  
-
   # pretty url
   extend FriendlyId
   friendly_id :slug
