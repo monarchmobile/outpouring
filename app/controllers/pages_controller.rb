@@ -10,6 +10,8 @@ class PagesController < ApplicationController
 
 	def show 
 		find_page
+		@article = Article.find(1)
+    	@comment = @article.comments.build
 	end
 
 	def edit 
