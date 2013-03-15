@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
 	def index
 		@pages = Page.all 
+		grab_posts
 	end
 
 	def show 

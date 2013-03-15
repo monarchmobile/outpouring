@@ -10,6 +10,8 @@ Outpouring::Application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { :registrations => "users/registrations" }
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   mount Piggybak::Engine => '/checkout', :as => 'piggybak'
+
+  match 'dashboard', :to => 'static_pages#dashboard'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

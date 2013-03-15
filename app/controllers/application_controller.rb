@@ -4,5 +4,13 @@ class ApplicationController < ActionController::Base
 	  flash[:error] = "Access denied."
 	  redirect_to main_app.root_url
   end
+
+  def after_sign_in_path_for(resource)
+	 if current_user.role_ids.include?(1)
+	 	pages_path
+	 else
+	 	root_path
+	 end
+  end
   
 end
