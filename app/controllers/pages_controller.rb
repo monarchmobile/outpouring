@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 	before_filter :authenticate_user!, :except => [:show] # devise method
 	def new 
 		@page = Page.new
+		grab_posts
 	end
 
 	def index
