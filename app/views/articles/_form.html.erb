@@ -1,5 +1,11 @@
 <%= form_for(@article) do |f| %>
   <%= render 'shared/errors', object: @article %>
+  <% if can? :edit, Page %>
+    <div class="field">
+      <%= f.label :featured, "check box to be featured article in sidebar" %><br />
+      <%= f.check_box :featured %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>

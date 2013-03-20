@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :body, :title, :tag_names
+  attr_accessible :body, :title, :tag_names, :featured
 
   	validates_presence_of :title, :body
 	validates_uniqueness_of :title
@@ -9,8 +9,15 @@ class Article < ActiveRecord::Base
 	attr_writer :tag_names
 	after_save :assign_tags
 
+	
+	scope :featured, where(:featured => true)
+
 	def tag_names
 		@tag_names || tags.map(&:name).join('')
+	end
+
+	def self.is_featured_article?
+		where(featured: true)
 	end
 
 	private
