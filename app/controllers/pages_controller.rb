@@ -62,8 +62,5 @@ class PagesController < ApplicationController
 		@page = Page.find(params[:id])
 	end
 
-	
-
-	
 
 end
