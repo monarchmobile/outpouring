@@ -14,6 +14,9 @@ jQuery ->
 	$('#article_schedule_in').datepicker
 		dateFormat: 'yy-mm-dd'
 
+	$('#article_schedule_out').datepicker
+		dateFormat: 'yy-mm-dd'
+
 	
 		
 	

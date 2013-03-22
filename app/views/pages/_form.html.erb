@@ -1,5 +1,5 @@
-<%= form_for @page do |f| %>
-	<%= render 'shared/errors', object: @page %>
+<%= form_for @page do |f| %> 
+	<%= render 'shared/errors', object: @page %> 
 	<div class="field">
 		<%= f.label :title %>
 		<%= f.text_field :title %>
@@ -16,10 +16,18 @@
 		<%= f.label :index %>
 		<%= f.select(:index, 1..Page.all.count, { prompt: true } )%>
 	</div>
-	<%= f.fields_for link do |builder| %>
+	<%= f.fields_for :links do |builder| %>
 		<div class="field">
-			<%= builder.label :top_nav %>
-			<%= builder.check_box :top_nav %>
+			<%= builder.label :top_link %>
+			<%= builder.check_box :top_link %>
+		</div>
+		<div class="field">
+			<%= builder.label :side_link %>
+			<%= builder.check_box :side_link %>
+		</div>
+		<div class="field">
+			<%= builder.label :top_link %>
+			<%= builder.check_box :top_link %>
 		</div>
 
 	<% end %>

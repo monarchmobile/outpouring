@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 	before_filter :authenticate_user!, :except => [:show] # devise method
 	def new 
 		@page = Page.new
-		@link = @page.links.build
+	
 		home_article_comment_form	
 	end
 
@@ -14,12 +14,14 @@ class PagesController < ApplicationController
 
 	def show 
 		find_page
+		
 		home_article_comment_form
 		
 	end
 
 	def edit 
 		find_page
+
 		home_article_comment_form
 	end
 

@@ -1,10 +1,11 @@
 class Page < ActiveRecord::Base
-  attr_accessible :content, :published, :slug, :title, :index
+  attr_accessible :content, :published, :slug, :title, :index, :links_attributes
   before_create :make_slug
   # validates :slug, :uniqueness => true
 
-
   has_many :links, :dependent => :destroy
+  accepts_nested_attributes_for :links
+  
 
 
   # pretty url
@@ -16,7 +17,7 @@ class Page < ActiveRecord::Base
   end
 
   private
-	  def make_slug
-	    self.slug = self.title.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-')
-	  end
+    def make_slug
+      self.slug = self.title.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-')
+    end
 end
