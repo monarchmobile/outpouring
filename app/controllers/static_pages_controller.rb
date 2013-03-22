@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
 
+	layout 'dashboard'
+
 	def dashboard
 		@pages = Page.all
 		@articles = Article.all(:order => "featured DESC")

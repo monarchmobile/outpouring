@@ -60,16 +60,5 @@ class PagesController < ApplicationController
 		@page = Page.find(params[:id])
 	end
 
-<<<<<<< HEAD
-	def grab_posts
-		@article=Article.find(:first, :conditions =>"id='1'")
-		@comment = @article.comments.build if @article
-	
-	end
-=======
-	
-
-	
->>>>>>> master
 
 end
