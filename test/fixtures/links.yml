@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  top_link: false
+  side_link: false
+  no_link: false
+
+two:
+  top_link: false
+  side_link: false
+  no_link: false

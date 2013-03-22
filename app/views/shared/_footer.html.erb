@@ -1,7 +1,7 @@
 <div class="full-width" id="footer">
 	<div class="container">
 		<ul class="right">
-		  <%= content_tag :li, link_to("Dashboard", pages_path) if can? :manage, @page %>
+		  
 	      <% if current_user %>
 	          <%= content_tag :li, link_to("Logout", destroy_user_session_path, :method => :delete) %>
 	      <% else %>
