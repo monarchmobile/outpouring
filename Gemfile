@@ -32,7 +32,7 @@ gem 'rails_admin'
 gem 'piggybak'
 gem "piggybak_taxonomy", '0.0.7'
 gem "piggybak_variants", '0.0.13'
-
+gem "jquery-ui-rails", :group => :assets
 gem 'jquery-rails'
 gem "thin"
 gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
@@ -41,6 +41,8 @@ gem "ckeditor"
 gem "mini_magick"
 gem 'friendly_id'
 gem 'fog'
+gem 'client_side_validations'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

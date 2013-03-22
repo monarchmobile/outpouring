@@ -2,23 +2,25 @@ class PagesController < ApplicationController
 	before_filter :authenticate_user!, :except => [:show] # devise method
 	def new 
 		@page = Page.new
-		grab_posts
+		@link = @page.links.build
+		home_article_comment_form	
 	end
 
 	def index
 		@pages = Page.all 
-		grab_posts
+		home_article_comment_form
+
 	end
 
 	def show 
 		find_page
-		grab_posts
+		home_article_comment_form
 		
 	end
 
 	def edit 
 		find_page
-		grab_posts
+		home_article_comment_form
 	end
 
 	def create 
@@ -58,10 +60,16 @@ class PagesController < ApplicationController
 		@page = Page.find(params[:id])
 	end
 
+<<<<<<< HEAD
 	def grab_posts
 		@article=Article.find(:first, :conditions =>"id='1'")
 		@comment = @article.comments.build if @article
 	
 	end
+=======
+	
+
+	
+>>>>>>> master
 
 end

@@ -12,6 +12,18 @@
 		<%= f.label :published %>
 		<%= f.check_box :published %>
 	</div>
+	<div class="field">
+		<%= f.label :index %>
+		<%= f.select(:index, 1..Page.all.count, { prompt: true } )%>
+	</div>
+	<%= f.fields_for link do |builder| %>
+		<div class="field">
+			<%= builder.label :top_nav %>
+			<%= builder.check_box :top_nav %>
+		</div>
+
+	<% end %>
+	
 	<div class="actions">
 		<%= f.submit %>
 	</div>

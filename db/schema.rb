@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130313211524) do
+ActiveRecord::Schema.define(:version => 20130322160248) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -37,8 +37,12 @@ ActiveRecord::Schema.define(:version => 20130313211524) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "featured",     :default => false
+    t.boolean  "published"
+    t.date     "schedule_in"
+    t.date     "schedule_out"
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -66,6 +70,16 @@ ActiveRecord::Schema.define(:version => 20130313211524) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "countries", :force => true do |t|
     t.string  "name"
     t.string  "abbr"
@@ -83,6 +97,14 @@ ActiveRecord::Schema.define(:version => 20130313211524) do
     t.datetime "updated_at"
     t.string   "description",                                   :default => "",         :null => false
     t.string   "line_item_type",                                :default => "sellable", :null => false
+  end
+
+  create_table "links", :force => true do |t|
+    t.boolean  "top_link",   :default => false
+    t.boolean  "side_link",  :default => false
+    t.boolean  "no_link",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "navigation_nodes", :force => true do |t|
