@@ -1,5 +1,6 @@
 class Link < ActiveRecord::Base
-  attr_accessible :no_link, :side_link, :top_link
+  attr_accessible :location
 
-  belongs_to :page
+  has_many :links_pages
+  has_many :pages, :through => :links_pages
 end
