@@ -3,12 +3,24 @@
   <% if can? :edit, Page %>
     <div class="field">
       <%= f.label :featured, "check box to be featured article in sidebar" %><br />
-      <%= f.check_box :featured %>
+      <%= f.select(:featured, [["featured article", true], ["non-featured article", false]]) %>
     </div>
   <% end %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :published, "Published Status" %><br />
+    <%= f.select(:published, [["draft", false], ["published", true]]) %>
+  </div>
+  <div class="field">
+    <%= f.label :schedule_in %><br />
+    <%= f.text_field :schedule_in %>
+  </div>
+  <div class="field">
+    <%= f.label :schedule_out %><br />
+    <%= f.text_field :schedule_out %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

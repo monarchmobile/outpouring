@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321123300) do
+ActiveRecord::Schema.define(:version => 20130322160248) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -37,9 +37,12 @@ ActiveRecord::Schema.define(:version => 20130321123300) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.boolean  "featured",   :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "featured",     :default => false
+    t.boolean  "published"
+    t.date     "schedule_in"
+    t.date     "schedule_out"
   end
 
   create_table "ckeditor_assets", :force => true do |t|

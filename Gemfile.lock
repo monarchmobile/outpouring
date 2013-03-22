@@ -63,6 +63,7 @@ GEM
     ckeditor (4.0.2)
       mime-types
       orm_adapter
+    client_side_validations (3.2.1)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -236,6 +237,7 @@ DEPENDENCIES
   cancan
   carrierwave
   ckeditor
+  client_side_validations
   coffee-rails (~> 3.2.1)
   devise
   fog

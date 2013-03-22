@@ -8,6 +8,13 @@ jQuery ->
 		$("input.articles").not(this).removeAttr("checked").submit()
 
 	$("input.articles:checked").closest("ul.model_table li").css("background", "blue")
+
+	
+
+	$('#article_schedule_in').datepicker
+		dateFormat: 'yy-mm-dd'
+
+	
 		
 	
 	

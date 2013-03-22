@@ -27,6 +27,9 @@
 		<li>
 			<ul class="instance_detail">
 				<%= content_tag :li, article.title %>
+				<%= content_tag :li, article.published %>
+				<%= content_tag :li, article.schedule_in %>
+				<%= content_tag :li, article.schedule_out %>
 				<ul class="crud_buttons">
 					<%= content_tag :li, link_to("edit", edit_article_path(article)) %>
 					<%= content_tag :li, link_to("show", article_path(article)) %>
@@ -41,18 +44,19 @@
 	<% end %>
 </ul>
 
+<% if @contact %>
+	<h2>Contact information</h2>
+	<div class="contact_container">
+		<ul class="contact_information">
+		<%= content_tag :li, @contact.name %>
+		<%= content_tag :li, @contact.address %>
+		<%= content_tag :li, mail_to(@contact.email) %>
+		<%= content_tag :li, "phone: #{@contact.phone}" %>
+		<%= content_tag :li, "fax: #{@contact.fax}" %>
+		</ul>
+		<ul class="crud_buttons">
+			<%= content_tag :li, link_to("edit", edit_contact_path(@contact)) %>
 
-<h2>Contact information</h2>
-<div class="contact_container">
-	<ul class="contact_information">
-	<%= content_tag :li, @contact.name %>
-	<%= content_tag :li, @contact.address %>
-	<%= content_tag :li, mail_to(@contact.email) %>
-	<%= content_tag :li, "phone: #{@contact.phone}" %>
-	<%= content_tag :li, "fax: #{@contact.fax}" %>
-	</ul>
-	<ul class="crud_buttons">
-		<%= content_tag :li, link_to("edit", edit_contact_path(@contact)) %>
-
-	</ul>
-</div>
+		</ul>
+	</div>
+<% end %>
