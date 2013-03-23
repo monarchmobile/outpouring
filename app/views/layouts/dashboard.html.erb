@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Outpouring</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag "admin/static_pages" %>
   <%= javascript_include_tag "application" %>          
   <% if "#{params[:controller]}##{params[:action]}" == "piggybak/orders#submit" -%>
@@ -14,8 +15,13 @@
 	<div class="top_bar">
 		<h1><span class="orange">My</span> Monarch Dashboard</h1>
 	</div>
+	<div class="dash_main">	
 
 	<%= yield %>
-
+	</div>
+	
+	<div class="top_bar">
+		<h1><span class="orange">My</span> Monarch Dashboard</h1>
+	</div>
 </body>
 </html>

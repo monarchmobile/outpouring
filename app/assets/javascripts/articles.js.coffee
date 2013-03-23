@@ -7,7 +7,7 @@ jQuery ->
 		$(this).submit()  if $(this).not(":checked")
 		$("input.articles").not(this).removeAttr("checked").submit()
 
-	$("input.articles:checked").closest("ul.model_table li").css("background", "blue")
+	$("input.articles:checked").closest("ul.model_table li").css({"border": "4px solid #be6208"})
 
 	
 
