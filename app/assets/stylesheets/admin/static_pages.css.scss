@@ -40,6 +40,7 @@ a {
 
 label {
   color: $s_color;
+  margin-right: 20px;
 }
 
 .field {
@@ -358,11 +359,25 @@ ul.crud_buttons li.delete a{
 }
 
 li.featured {
-  padding-left: 30px;
+  font-size: 13px;
+  margin: 42px 0 0 183px;
+  position: absolute;
 }
 
 li.feature_select {
   border: 4px solid $s_color;
+}
+
+li.status {
+  margin-left: 58px;
+}
+
+li.in {
+  margin-left: 58px;
+}
+
+li.out {
+  margin-left: 58px;
 }
 
 .schedule_in, .schedule_out {
