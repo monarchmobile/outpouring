@@ -21,5 +21,18 @@ class ApplicationController < ActionController::Base
 	 	root_path
 	 end
   end
+
+  private
+
+  def resolve_layout
+    case action_name
+    when "show"
+      "application"
+    when "index", "edit", "new"
+      "dashboard"
+    else
+      "application"
+    end
+  end
   
 end

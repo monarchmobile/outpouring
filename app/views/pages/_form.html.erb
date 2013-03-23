@@ -16,21 +16,7 @@
 		<%= f.label :index %>
 		<%= f.select(:index, 1..Page.all.count, { prompt: true } )%>
 	</div>
-	<%= f.fields_for :links do |builder| %>
-		<div class="field">
-			<%= builder.label :top_link %>
-			<%= builder.check_box :top_link %>
-		</div>
-		<div class="field">
-			<%= builder.label :side_link %>
-			<%= builder.check_box :side_link %>
-		</div>
-		<div class="field">
-			<%= builder.label :top_link %>
-			<%= builder.check_box :top_link %>
-		</div>
-
-	<% end %>
+	
 	
 	<div class="actions">
 		<%= f.submit %>

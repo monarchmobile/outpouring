@@ -4,6 +4,10 @@ class ContactController < ApplicationController
 		@contact = Contact.find(params[:id])
 	end
 
+	def index
+		@contacts = Contact.all 
+	end
+
 	def new
 		@contact = Contact.new
 	end

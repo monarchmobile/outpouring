@@ -2,7 +2,10 @@
   # GET /articles
   # GET /articles.json
   before_filter :authenticate_user!, :except => [:index, :show] # devise method
+  layout :resolve_layout
+
   def index
+
     @articles = Article.all
 
     respond_to do |format|
@@ -88,4 +91,6 @@
       format.json { head :no_content }
     end
   end
+
+  
 end
