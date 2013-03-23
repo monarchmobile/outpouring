@@ -73,8 +73,8 @@ module Outpouring
 
     config.assets.initialize_on_precompile = false
     config.action_mailer.default_url_options = { host: ENV["MAILER_HOST"] }
-    config.assets.precompile << "static_pages.css"
-
+    config.serve_static_assets = true
+    config.assets.precompile += ['static_pages.css']
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
