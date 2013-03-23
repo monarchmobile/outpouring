@@ -1,6 +1,15 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background: url("water.jpg") repeat-x scroll 0 0px;
+  background: url("water.jpg") repeat-x scroll 0 0px, -moz-linear-gradient(center top , #FFFFFF 30%, #9ac5e4 70%) repeat scroll 0 0 transparent;
+  background: url("water.jpg") repeat-x scroll 0 0px, -webkit-linear-gradient(top , #FFFFFF 30%, #9ac5e4 70%) repeat scroll 0 0 transparent;
+  background: url("water.jpg") repeat-x scroll 0 0px, -ms-linear-gradient(top , #FFFFFF 30%, #9ac5e4 70%) repeat scroll 0 0 transparent;
+  background: url("water.jpg") repeat-x scroll 0 0px, -linear-gradient(to bottom , #FFFFFF 30%, #9ac5e4 70%) repeat scroll 0 0 transparent;
+  margin: 0;
+  padding: 0;
+}
 
 .comment {
 	background-color: tan;
