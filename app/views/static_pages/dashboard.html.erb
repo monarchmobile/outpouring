@@ -6,11 +6,21 @@
 					<%= content_tag :li, link_to("Articles", articles_path) %>
 					<%= content_tag :li, link_to("Pages", pages_path) %>
 					<%= content_tag :li, link_to("Supermodels", supermodels_path) if current_user.role? :SuperAdmin %>
-
-
-					
 				</ul>
 			
+			</div>
+		</div>
+
+		<div class="m_col">
+			<h2>Welcome to your dashboard!</h2>
+			<p>We've customized this dashboard for you, and it will be the hub that helps you manage your web application.</p>
+		</div>
+
+		<div class="r_col">
+
+			<div class="news">
+				<h3>News</h3>
+				<p>We don't have anything new to share right now, but from time to time this area of the dashboard contains marketing tips, new websites, and other stuff that we think our clients might find helpful or interesting.</p>
 			</div>
 		</div>
 </div>
