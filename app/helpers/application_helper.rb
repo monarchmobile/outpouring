@@ -14,6 +14,16 @@ module ApplicationHelper
 			end
 		end
   end
+
+  def check_status(article)
+    if article.published == true
+      "published"
+    else 
+      "draft"
+    end
+  end
+
+  
 	
 end
 

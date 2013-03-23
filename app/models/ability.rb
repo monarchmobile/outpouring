@@ -12,8 +12,10 @@ class Ability
     can [:create], User
               # allow everyone to read everything
               # add ability to create comments
-    user ||= User.new                     
-    if user.role? :Admin      ### ADMIN ###
+    user ||= User.new   
+    if user.role? :SuperAdmin
+      can :manage, :all 
+    elsif user.role? :Admin      ### ADMIN ###
       can :manage, :all
       can :assign_roles, User
       can :dashboard
