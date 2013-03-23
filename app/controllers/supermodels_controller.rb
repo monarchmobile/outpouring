@@ -7,7 +7,7 @@ class SupermodelsController < ApplicationController
 	end
 
 	def index 
-		@supermodels = Supermodel.all(:order => "name ASC")
+		@supermodels = Supermodel.all(:order => "visible ASC, name ASC")
 	end
 
 	def show
@@ -25,6 +25,27 @@ class SupermodelsController < ApplicationController
 				format.js
 			end
 		end
+	end
+
+	def edit
+		find_supermodel 
+
+	end
+
+	def update
+		find_supermodel
+		authorize! :update, @supermodel
+
+		respond_to do |format|
+	      if @supermodel.update_attributes(params[:supermodel])
+	        format.html { redirect_to dashboard_path, notice: 'model was successfully updated.' }
+	        format.js
+	      else
+	        format.html { render action: "edit" }
+	        format.js { render json: @supermodel.errors, status: :unprocessable_entity }
+	      end
+	    end
+
 	end
 
 
