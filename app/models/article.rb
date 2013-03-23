@@ -20,11 +20,6 @@ class Article < ActiveRecord::Base
 		where(featured: true)
 	end
 
-	def self.is_published?
-		"published" if true
-		"draft" if false
-	end
-
 	private
 
 	def assign_tags
