@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Outpouring</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= stylesheet_link_tag "admin/static_pages" %>
   <%= javascript_include_tag "application" %>          
   <% if "#{params[:controller]}##{params[:action]}" == "piggybak/orders#submit" -%>
@@ -13,6 +12,8 @@
 </head>
 <body>
 	<div class="top_bar">
+		<a class="dash_button" href="/">Home</a>
+		<a class="dash_button dashboard" href="/dashboard">Dashboard</a>
 		<h1><span class="orange">My</span> Monarch Dashboard</h1>
 	</div>
 	<div class="dash_main">	
@@ -21,6 +22,8 @@
 	</div>
 	
 	<div class="top_bar">
+		<a class="dash_button" href="/">Home</a>
+		<a class="dash_button dashboard" href="/dashboard">Dashboard</a>
 		<h1><span class="orange">My</span> Monarch Dashboard</h1>
 	</div>
 </body>
