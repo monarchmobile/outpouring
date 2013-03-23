@@ -100,9 +100,12 @@ ActiveRecord::Schema.define(:version => 20130323000020) do
   end
 
   create_table "links", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "location"
+    t.boolean  "top_link",   :default => false
+    t.boolean  "side_link",  :default => false
+    t.boolean  "no_link",    :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "page_id"
   end
 
   create_table "links_pages", :id => false, :force => true do |t|
