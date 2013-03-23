@@ -7,7 +7,7 @@ class SupermodelsController < ApplicationController
 	end
 
 	def index 
-		@supermodels = Supermodel.all 
+		@supermodels = Supermodel.all(:order => "name ASC")
 	end
 
 	def show
