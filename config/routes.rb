@@ -4,7 +4,6 @@ Outpouring::Application.routes.draw do
   resources :products
   resources :contacts
   resources :links
-  resources :users
   resources :supermodels
 
   resources :articles do
