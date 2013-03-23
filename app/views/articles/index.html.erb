@@ -1,7 +1,24 @@
-<h1>Listing articles</h1>
-
-<%= render @articles %>
-
-<br />
-
-<%= link_to 'New Article', new_article_path %>
+<h2>Articles</h2>
+<%= content_tag :p, link_to("+ New", new_article_path), class: "new_instance_button" %>
+<ul class="model_table">
+	<% @articles.each do |article| %>
+		<li>
+			<ul class="instance_detail">
+				<%= content_tag :li, article.title, class:"title"  %>
+				<%= content_tag :li, article.published %>
+				<%= content_tag :li, article.schedule_in %>
+				<%= content_tag :li, article.schedule_out %>
+				<ul class="crud_buttons">
+					<%= content_tag :li, link_to("edit", edit_article_path(article)) %>
+					<%= content_tag :li, link_to("view", article_path(article)) %>
+					<%= content_tag :li, link_to("delete", article_path(article), :confirm => "are you sure?", :method => :delete ) %>
+					
+				</ul>
+				<%= form_for article, remote: true do |a| %>
+					<%= a.check_box :featured, class: "articles", id: "article#{article.id}" %>
+				<% end %>
+			</ul>
+			<br class="clear">
+		</li>
+	<% end %>
+</ul>
