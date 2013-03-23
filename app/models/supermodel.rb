@@ -1,3 +1,10 @@
-class Supermodel < ActiveRecord::Base
+class Supermodel < ActiveRecord::Base 
   attr_accessible :name, :visible
+
+
+
+  
+
+  
+
 end
