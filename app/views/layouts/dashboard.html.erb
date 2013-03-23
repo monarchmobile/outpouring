@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Outpouring</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "admin/static_pages" %>
   <%= javascript_include_tag "application" %>          
   <% if "#{params[:controller]}##{params[:action]}" == "piggybak/orders#submit" -%>
       <%= javascript_include_tag "piggybak/piggybak-application" %>
@@ -18,9 +18,9 @@
 		<div class="l_col">
 			<div class="dash_nav">
 				<ul>
-					<li><a href="#">Test</a></li>
-					<li><a href="#">Test</a></li>
-					<li><a href="#">Test</a></li>
+					<li><a href="#">Pages</a></li>
+					<li><a href="#">Articles</a></li>
+					<li><a href="#">Users</a></li>
 				</ul>
 			
 			</div>

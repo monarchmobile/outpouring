@@ -5,7 +5,9 @@ $p_color: #b6b5b4;
 $s_color: #be6208;
 
 body {
-  background: url('gray_back.jpg') repeat;
+  background: url(image_path('gray_back.jpg')) repeat;
+  margin:0px;
+  padding: 0px;
 }
 
 h1, h2, h3, a {
@@ -18,10 +20,12 @@ h1, h2, h3, a {
 
 h1 {
   font-size: 24px;
+  text-align: center;
 }
 
 a {
   color:$p_color;
+  text-decoration: none;
   &:hover {
     color: $s_color;
   }
@@ -71,17 +75,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3f3f', end
   min-height: 300px;
   padding: 5%;
   width: 85%;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style: none;
+  }
   a {
     border-radius: 5px 5px 5px 5px;
     display: block;
     font-size: 24px;
     height: 30px;
     margin: 15px 0;
-    padding: 10px 0 3px;
+    padding: 1px 0 8px;
     text-align: center;
     width: 100%;
     &:hover {
-      background: url('black_opac.png') repeat;
+      background: url(image_path('black_opac.png')) repeat;
     }
   }
 }
