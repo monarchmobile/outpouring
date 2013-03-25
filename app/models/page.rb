@@ -1,11 +1,10 @@
 class Page < ActiveRecord::Base
-  attr_accessible :content, :published, :slug, :title, :index
+  attr_accessible :content, :published, :slug, :title, :index, :links_attributes
   before_create :make_slug
   # validates :slug, :uniqueness => true
 
-  has_many :links_pages
-  has_many :links, :through => :links_pages
-  
+  has_many :links, :dependent => :destroy
+  accepts_nested_attributes_for :links
   
 
 
@@ -13,12 +12,8 @@ class Page < ActiveRecord::Base
   extend FriendlyId
   friendly_id :slug
 
-  # def link?(location)
-  #  return !!self.links.find_by_location(location.to_s)
-  # end
-
   def self.s_that_are_published
-    where(published: true)
+    where(:published => true).order("index ASC")
   end
 
   private
