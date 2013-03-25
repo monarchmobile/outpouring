@@ -7,12 +7,14 @@ jQuery ->
 		$(this).submit()  if $(this).not(":checked")
 		$("input.articles").not(this).removeAttr("checked").submit()
 
-	$("input.articles:checked").closest("ul.model_table li").css("background", "blue")
+	$("input.articles:checked").closest("ul.model_table li").css({"border": "4px solid #be6208"})
 
 	
 
-	$('#article_schedule_in').datepicker
-		dateFormat: 'yy-mm-dd'
+	$('#article_schedule_in').datepicker()
+	$( "#format" ).change ->
+      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+
 
 	$('#article_schedule_out').datepicker
 		dateFormat: 'yy-mm-dd'

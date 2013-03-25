@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 	before_filter :authenticate_user!, :except => [:show] # devise method
+	layout :resolve_layout
 	def new 
 		@page = Page.new
 		@links = @page.links.new
@@ -63,8 +64,5 @@ class PagesController < ApplicationController
 		@page = Page.find(params[:id])
 	end
 
-	
-
-	
 
 end

@@ -5,6 +5,25 @@ module ApplicationHelper
   #   pages_enum = pages.each
   #   pages[0].title
   # end
+
+  def update_list
+  		models = ActiveRecord::Base.connection.tables.collect{|t| t.underscore.singularize.camelize}
+		models.each do |m|
+			if Supermodel.find(:all, conditions: {name: m }).count == 0
+				Supermodel.create(name: m)
+			end
+		end
+  end
+
+  def check_status(article)
+    if article.published == true
+      "published"
+    else 
+      "draft"
+    end
+  end
+
+  
 	
 end
 

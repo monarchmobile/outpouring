@@ -4,6 +4,7 @@ Outpouring::Application.routes.draw do
   resources :products
   resources :contacts
   resources :links
+  resources :supermodels
 
   resources :articles do
     resources :comments
@@ -14,6 +15,7 @@ Outpouring::Application.routes.draw do
   mount Piggybak::Engine => '/checkout', :as => 'piggybak'
 
   match 'dashboard', :to => 'static_pages#dashboard'
+
   
   root :to => "pages#show", :id => 'home'
 
