@@ -15,6 +15,7 @@
 				<ul class="instance_detail">
 					<%= content_tag :li, page.title, class:"title" %>
 					<%= form_for page, remote: true do |a| %>
+						
 						<%= a.select(:index, 1..Page.all.count) %>
 					<% end %>
 					<%= form_for page, remote: true do |a| %>

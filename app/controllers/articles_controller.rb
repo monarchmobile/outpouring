@@ -1,4 +1,4 @@
- class ArticlesController < ApplicationController
+ class ArticlesController < ApplicationController 
   # GET /articles
   # GET /articles.json
   before_filter :authenticate_user!, :except => [:index, :show] # devise method

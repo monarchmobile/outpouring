@@ -49,8 +49,6 @@ class SupermodelsController < ApplicationController
 	end
 
 
-
-
 	def find_supermodel
 		@supermodel = Supermodel.find(params[:id])
 	end

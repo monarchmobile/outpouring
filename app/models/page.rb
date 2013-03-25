@@ -1,4 +1,4 @@
-class Page < ActiveRecord::Base
+class Page < ActiveRecord::Base 
   attr_accessible :content, :published, :slug, :title, :index, :link_ids
   before_create :make_slug
   # validates :slug, :uniqueness => true
