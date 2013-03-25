@@ -1,10 +1,16 @@
 class Page < ActiveRecord::Base
-  attr_accessible :content, :published, :slug, :title, :index, :links_attributes
+  attr_accessible :content, :published, :slug, :title, :index, :link_ids
   before_create :make_slug
   # validates :slug, :uniqueness => true
 
-  has_many :links, :dependent => :destroy
-  accepts_nested_attributes_for :links
+  has_many :links_pages, :dependent => :destroy
+  has_many :links, :through => :links_pages
+
+
+
+ def locations?(location)
+   return !!self.links.find_by_location(location.to_s)
+ end
   
 
 

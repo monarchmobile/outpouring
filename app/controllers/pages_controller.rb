@@ -22,7 +22,6 @@ class PagesController < ApplicationController
 
 	def edit 
 		find_page
-		# @links = @page.links.build
 		@links = Link.all
 		home_article_comment_form
 	end
@@ -41,6 +40,7 @@ class PagesController < ApplicationController
 
 	def update
 		find_page
+		
 		respond_to do |format|
 			if @page.update_attributes(params[:page])
 				format.html { redirect_to @page, :notice => "The #{@page.title} page was succesfully updated"}
