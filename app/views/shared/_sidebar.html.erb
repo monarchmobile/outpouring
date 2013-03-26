@@ -1,5 +1,5 @@
-  <% @top_sidebar = Article.find_by_title("Top Sidbar") %>
-  <%= content_tag :div, @top_sidebar.body, class: "top_sidebar" %>
+  <% @top_sidebar = Article.find_by_title("Top Sidebar") %>
+  <%= content_tag :div, raw(@top_sidebar.body), class: "top_sidebar" %>
 
  <div class="share">
     <h3>Share Your Memories</h3>
