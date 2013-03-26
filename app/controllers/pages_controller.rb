@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class PagesController < ApplicationController 
 	before_filter :authenticate_user!, :except => [:show] # devise method
 	layout :resolve_layout
 	def new 
@@ -49,6 +49,7 @@ class PagesController < ApplicationController
 
 	def destroy
 		find_page
+		@page.link_ids=[]
 		@page.destroy
 		respond_to do |format|
 			format.html { redirect_to root_url}

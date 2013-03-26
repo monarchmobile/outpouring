@@ -3,14 +3,13 @@ class Page < ActiveRecord::Base
   before_create :make_slug
   # validates :slug, :uniqueness => true
 
-  has_many :links_pages, :dependent => :destroy
-  has_many :links, :through => :links_pages, :dependent => :destroy
+  has_many :links_pages 
+  has_many :links, :through => :links_pages
 
 
-
- def locations?(location)
-   return !!self.links.find_by_location(location.to_s)
- end
+  def locations?(location)
+     return !!self.links.find_by_location(location.to_s)
+  end
   
 
 
