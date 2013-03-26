@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   # validates :slug, :uniqueness => true
 
   has_many :links_pages, :dependent => :destroy
-  has_many :links, :through => :links_pages
+  has_many :links, :through => :links_pages, :dependent => :destroy
 
 
 

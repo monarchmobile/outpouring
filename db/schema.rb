@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20130322184539) do
-=======
 ActiveRecord::Schema.define(:version => 20130323000020) do
->>>>>>> master
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -107,11 +103,6 @@ ActiveRecord::Schema.define(:version => 20130323000020) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "location"
-  end
-
-  create_table "links_pages", :id => false, :force => true do |t|
-    t.integer "link_id"
-    t.integer "page_id"
   end
 
   create_table "links_pages", :id => false, :force => true do |t|
