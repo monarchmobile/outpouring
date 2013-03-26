@@ -15,8 +15,8 @@ class ApplicationController < ActionController::Base
   helper_method :home_article_comment_form, :show_sidebar
 
   def after_sign_in_path_for(resource)
-	 if current_user.role_ids.include?(1)
-	 	pages_path
+	 if current_user.role_ids.include? :SuperAmdin
+	 	dashboard_path
 	 else
 	 	root_path
 	 end
