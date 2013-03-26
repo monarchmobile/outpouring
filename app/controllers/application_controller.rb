@@ -15,7 +15,9 @@ class ApplicationController < ActionController::Base
   helper_method :home_article_comment_form, :show_sidebar
 
   def after_sign_in_path_for(resource)
-	 if current_user.role_ids.include? :SuperAmdin
+    superadmin = Role.find_by_name(:SuperAdmin)
+    admin = Role.find_by_name(:Admin)
+	 if current_user.role_ids.include?(admin.id) || current_user.role_ids.include?(superadmin.id)
 	 	dashboard_path
 	 else
 	 	root_path
@@ -35,11 +37,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def show_sidebar
-    case params[:controller]
-    when "pages", "articles"
-      render 'shared/sidebar'
-    end
-  end
+  # def show_sidebar
+  #   case params[:controller]
+  #   when "pages", "articles"
+  #     render 'shared/sidebar'
+  #   end
+  # end
   
 end
