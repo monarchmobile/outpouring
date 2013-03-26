@@ -1,17 +1,5 @@
-  <%= image_tag 'sisters.jpg',size: "300x240"%> 
-  <p>Last Day of Business was<br/>
-  <strong>Saturday, March 2nd, 2013</strong></p>
-
-  <div class="schedule">
-    <h2>Worship Schedule</h2>
-    <h3>Tuesdays @ 7pm</h3>
-    <ul>
-      <li>March 5th @ the Cafe</li>
-      <li>March 12th @ the Cafe</li>
-      <li>March 19th @ TBA</li>
-      <li>March 26th @ TBA</li>
-    </ul>
-  </div> 
+  <% @top_sidebar = Article.find_by_title("Top Sidbar") %>
+  <%= content_tag :div, @top_sidebar.body, class: "top_sidebar" %>
 
  <div class="share">
     <h3>Share Your Memories</h3>
