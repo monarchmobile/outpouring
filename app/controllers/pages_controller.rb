@@ -10,7 +10,6 @@ class PagesController < ApplicationController
 	def index
 		@pages = Page.all 
 		home_article_comment_form
-
 	end
 
 	def show 
@@ -52,7 +51,7 @@ class PagesController < ApplicationController
 		find_page
 		@page.destroy
 		respond_to do |format|
-			format.html { redirect_to root_url, :notice => "The #{@page.title} page was successfully deleted" }
+			format.html { redirect_to root_url}
 			format.js
 		end
 	end
@@ -60,6 +59,5 @@ class PagesController < ApplicationController
 	def find_page 
 		@page = Page.find(params[:id])
 	end
-
 
 end
