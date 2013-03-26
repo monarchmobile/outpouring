@@ -15,6 +15,8 @@ Outpouring::Application.routes.draw do
   mount Piggybak::Engine => '/checkout', :as => 'piggybak'
 
   match 'dashboard', :to => 'static_pages#dashboard'
+  match 'article_index', :to => 'articles#article_index'
+  # match "users/:id/update", to: "users#update"
 
   
   root :to => "pages#show", :id => 'home'

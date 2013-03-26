@@ -1,0 +1,9 @@
+
+<% @articles.each do |art| %>
+	<div class="article_index">
+		<%= content_tag :h2, art.title %>		
+		<p><%= raw truncate(art.body, :length => 20, 
+			:omission => "... #{link_to('[more]', article_path(art))}") %></p>
+	</div>
+
+<% end %>

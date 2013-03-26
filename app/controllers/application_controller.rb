@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 	end
   end
 
-  helper_method :home_article_comment_form
+  helper_method :home_article_comment_form, :show_sidebar
 
   def after_sign_in_path_for(resource)
 	 if current_user.role_ids.include?(1)
@@ -32,6 +32,13 @@ class ApplicationController < ActionController::Base
       "dashboard"
     else
       "application"
+    end
+  end
+
+  def show_sidebar
+    case params[:controller]
+    when "pages", "articles"
+      render 'shared/sidebar'
     end
   end
   

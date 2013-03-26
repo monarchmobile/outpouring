@@ -14,12 +14,19 @@
     end
   end
 
+  def article_index
+    sidebar = Article.find_by_title("Top Sidebar")
+    @articles = Article.find(:all, :conditions => ["id != ?", sidebar.id])
+    home_article_comment_form
+  end
+
   # GET /articles/1
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
     @comments = @article.comments
     @comment = @article.comments.build
+    home_article_comment_form
 
 
     respond_to do |format|
