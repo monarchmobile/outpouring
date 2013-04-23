@@ -1,7 +1,11 @@
 class Article < ActiveRecord::Base
-  attr_accessible :body, :title, :tag_names, :featured, :published, :schedule_in, :schedule_out
+ 
+  attr_accessible :title, :slug, :body, :featured
+  attr_accessible :starts_at, :ends_at, :current_state, :position
+  attr_accessible :tag_names
 
-  	validates_presence_of :title, :body
+  before_create :make_slug
+  validates_presence_of :title, :body
 	validates_uniqueness_of :title
 	has_many :comments, :dependent => :destroy
 	has_many :taggings, :dependent => :destroy
@@ -20,6 +24,14 @@ class Article < ActiveRecord::Base
 		where(featured: true)
 	end
 
+	def make_slug
+    self.slug = self.title.downcase.gsub(/[^a-z1-9]+/, '-').chomp('-')
+  end
+
+  def set_position
+    self.position = (Blog.published.count)+1
+  end	
+
 	private
 
 	def assign_tags
@@ -28,5 +40,7 @@ class Article < ActiveRecord::Base
 				Tag.find_or_create_by_name(name)
 			end
 		end
-	end		
+	end	
+
+
 end

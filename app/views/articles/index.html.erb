@@ -1,38 +1,27 @@
- 
-	<h1>Articles</h1>
-		<div class="column_title pages">
-		<%= content_tag :p, link_to("+ New", new_article_path), class: "new_instance_button" %>
-		<ul>
-			<li class="title">Title</li>
-			<li class="featured">Featured</li>
-			<li class="status">Status</li>
-			<li class="in">On Site</li>
-			<li class="out">Off Site</li>
-		</ul>
-		
-	</div>
-
-	<ul class="model_table">
-		<% @articles.each do |article| %>
-			<li>
-				<ul class="instance_detail">
-					<%= content_tag :li, article.title, class:"title"  %>
-					<%= form_for article, remote: true do |a| %>
-						<%= a.check_box :featured, class: "articles", id: "article#{article.id}" %>
-					<% end %>
-					<%= content_tag :li, check_status(article) %>
-					<%= content_tag :li, article.schedule_in %>
-					<%= content_tag :li, article.schedule_out %>
-					<ul class="crud_buttons">
-						<%= content_tag :li, link_to("edit", edit_article_path(article)), class:"edit"  %>
-						<%= content_tag :li, link_to("view", article_path(article)), class:"view" %>
-						<%= content_tag :li, link_to("delete", article_path(article), :confirm => "are you sure?", :method => :delete ), class:"delete" %>
-						
-					</ul>
-					
-				</ul>
-				<br class="clear">
-			</li>
-		<% end %>
+  
+<h1>articles</h1>
+<div class="column_title pages">
+	<%= content_tag :p, link_to("+ New", new_article_path), class: "new_instance_button" %>
+	<ul>
+		<li class="title">Title</li>
+		<li>Status</li>
+		<li class="in announce_in">Go Live</li>
+		<li class="out">Expires On</li>
 	</ul>
+	
+</div>
 
+<ul class="model_table articleStatus" id="published_articles" data-update-url="<%= sort_articles_url %>">
+	<%= content_tag :h3, "Published articles (#{@published_articles.count})" %>
+	<%= render @published_articles %>
+</ul>
+
+<ul class="model_table articleStatus" id="scheduled_articles" data-update-url="<%= sort_articles_url %>">
+	<%= content_tag :h3, "Schedule articles (#{@scheduled_articles.count})" %>
+	<%= render @scheduled_articles %>
+</ul>
+
+<ul class="model_table articleStatus" id="draft_articles" data-update-url="<%= sort_articles_url %>">
+	<%= content_tag :h3, "Draft articles (#{@draft_articles.count})" %>
+	<%= render @draft_articles %>
+</ul>

@@ -1,0 +1,3 @@
+heroku run rake db:migrate --remote staging
+heroku run rake db:create_statuses
+heroku run rake db:create_partials

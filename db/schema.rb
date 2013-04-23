@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130323000020) do
+ActiveRecord::Schema.define(:version => 20130423195653) do
 
   create_table "addresses", :force => true do |t|
     t.string   "firstname",  :null => false
@@ -37,12 +37,14 @@ ActiveRecord::Schema.define(:version => 20130323000020) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
-    t.boolean  "featured",     :default => false
-    t.boolean  "published"
-    t.date     "schedule_in"
-    t.date     "schedule_out"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "featured",      :default => false
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.integer  "current_state"
+    t.integer  "position"
+    t.string   "slug"
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -172,14 +174,28 @@ ActiveRecord::Schema.define(:version => 20130323000020) do
     t.boolean  "to_be_cancelled",                                    :default => false
   end
 
+  create_table "page_partials", :id => false, :force => true do |t|
+    t.integer "page_id"
+    t.integer "partial_id"
+  end
+
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.boolean  "published",  :default => false
     t.string   "slug"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
-    t.integer  "index"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.integer  "current_state"
+    t.integer  "position"
+  end
+
+  create_table "partials", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "payment_method_values", :force => true do |t|
@@ -216,6 +232,20 @@ ActiveRecord::Schema.define(:version => 20130323000020) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "profiles", :force => true do |t|
+    t.string   "company"
+    t.string   "quote"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "fax"
+    t.string   "email1"
+    t.string   "email2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
@@ -231,8 +261,9 @@ ActiveRecord::Schema.define(:version => 20130323000020) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|
@@ -281,6 +312,12 @@ ActiveRecord::Schema.define(:version => 20130323000020) do
     t.string  "name"
     t.string  "abbr"
     t.integer "country_id"
+  end
+
+  create_table "statuses", :force => true do |t|
+    t.string   "status_name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "supermodels", :force => true do |t|

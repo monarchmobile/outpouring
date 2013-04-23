@@ -1,26 +1,47 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+# index
+	$("#published_articles").sortable
+    axis: "y"
+    handle: ".handle"
+    update: ->
+      $.post $(this).data("update-url"), $(this).sortable("serialize")
 
-jQuery -> 
-	$(".articles").click ->
-		$(this).submit()  if $(this).not(":checked")
-		$("input.articles").not(this).removeAttr("checked").submit()
+  # starts at date
+	$(".article_message_starts_at").datepicker(dateFormat: "dd-mm-yy")
+	$("body").delegate ".article_message_starts_at", "click", ->
+		$(this).datepicker(dateFormat: "dd-mm-yy")
 
-	$("input.articles:checked").closest("ul.model_table li").css({"border": "4px solid #be6208"})
+	$("body").delegate ".article_message_starts_at", "change", ->
+		$(this).closest("form").unbind('submit').submit()
+		value = $(this).val()
+		id_attr = $(this).parent().next().attr("id")
+		id_array = id_attr.split("_")
+		id = id_array[1]
+		$("#message_"+id+"_starts_at_text").html(value)
+		$(".article_message_starts_at").datepicker(dateFormat: "dd-mm-yy")
 
-	
+	# ends at date
+	$(".article_message_ends_at").datepicker(dateFormat: "dd-mm-yy")
+	$("body").delegate ".article_message_ends_at", "click", ->
+		$(this).datepicker(dateFormat: "dd-mm-yy")
 
-	$('#article_schedule_in').datepicker()
-	$( "#format" ).change ->
-      $( "#datepicker" ).datepicker( "option", "dateFormat", $( this ).val() );
+	$("body").delegate ".article_message_ends_at", "change", ->
+		$(this).closest("form").unbind('submit').submit()
+		value = $(this).val()
+		id_attr = $(this).parent().next().attr("id")
+		id_array = id_attr.split("_")
+		id = id_array[1]
+		$("#message_"+id+"_ends_at_text").html(value)
+		$(".article_message_ends_at").datepicker(dateFormat: "dd-mm-yy")
 
 
-	$('#article_schedule_out').datepicker
-		dateFormat: 'yy-mm-dd'
+	# select status
+	$("body").delegate ".article_ajax_edit select", "change", ->
+		$(this).closest("form").submit()
 
-	
-		
+# _form
+	$("#article_starts_at").datepicker(dateFormat: "dd-mm-yy")
+	$("#article_ends_at").datepicker(dateFormat: "dd-mm-yy")
 	
 	
 
