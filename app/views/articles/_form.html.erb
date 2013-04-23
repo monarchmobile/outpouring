@@ -1,4 +1,4 @@
-
+ 
   <%= form_for(@article) do |f| %> 
     <%= render 'shared/errors', object: @article %>
     <div class="field">
@@ -15,21 +15,29 @@
       <%= f.text_field :tag_names %>
     </div>
 
-    <div class="field schedule_in">
-      <%= f.label :schedule_in %><br />
-      <%= f.text_field :schedule_in %>
+    <div class="field schedule_fields">
+      <%= f.label :starts_at %>
+      <% if !@article.new_record? %>
+        <%= f.text_field :starts_at, :class => "datepicker", :value => Describe.new(Article).starts_at(@article.id) %>
+      <% else %>
+        <%= f.text_field :starts_at %>
+      <% end %>
     </div>
-    <div class="field schedule_out">
-      <%= f.label :schedule_out %><br />
-      <%= f.text_field :schedule_out %>
+    <div class="field schedule_fields">
+      <%= f.label :ends_at %>
+      <% if !@article.new_record? %>
+        <%= f.text_field :ends_at, :class => "datepicker", :value => Describe.new(Article).ends_at(@article.id) %>
+      <% else %>
+        <%= f.text_field :ends_at %>
+      <% end %>
     </div>
 
-    <div class="field schedule_in">
-      <%= f.label :published, "Published Status" %><br />
-      <%= f.select(:published, [["draft", false], ["published", true]]) %>
+    <div class="field schedule_fields">
+      <%= f.label :current_state %>
+      <%= collection_select(:article, :current_state, Status.all, :id, :status_name, option = { :selected => @article.current_state}) %>
     </div>
 
-    <% if can? :edit, Page %>
+    <% if can? :edit, Article %>
       <div class="field schedule_out">
         <%= f.label :featured, "Feature in Sidebar?" %><br />
         <%= f.select(:featured, [["featured article", true], ["non-featured article", false]]) %>

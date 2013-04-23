@@ -1,10 +1,14 @@
 class Page < ActiveRecord::Base 
-  attr_accessible :content, :published, :slug, :title, :index, :link_ids
+  attr_accessible :content, :current_state, :slug, :title, :position, :starts_at, :ends_at
+  attr_accessible :link_ids, :partial_ids
   before_create :make_slug
   # validates :slug, :uniqueness => true
 
   has_many :links_pages 
   has_many :links, :through => :links_pages
+
+  has_many :page_partials 
+  has_many :partials, :through => :page_partials
 
 
   def locations?(location)

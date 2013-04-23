@@ -4,12 +4,9 @@ class StaticPagesController < ApplicationController
 
 	def dashboard
 		@pages = Page.all
-		@articles = Article.all(:order => "featured DESC")
-		@contact = Contact.first
-		@visible_models = Supermodel.where(visible: true)
-		home_article_comment_form
+		static_array = %w[Link Partial Profile Role Supermodel]
+		@active_models = Supermodel.where("visible = true AND name NOT IN (?)", static_array).order("name ASC")
+		@static_models = Supermodel.where("visible = true AND name IN (?)", static_array).order("name ASC")
 	end
-  
-
   
 end

@@ -1,5 +1,5 @@
 class SupermodelsController < ApplicationController
-
+ 
 	layout 'dashboard'
 
 	def new 

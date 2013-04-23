@@ -11,10 +11,10 @@
     </ul>
      
     <ul class="left">
-      <% @pages = Page.s_that_are_published %>
-
+      <% @pages = Describe.new(Page).published.order("position ASC") %>
+      <% top_link = Link.find_by_location("top_link").id %>
       <% @pages.each do |page| %>
-        <% if page.locations?("top_link") == true %>
+        <% if page.link_ids.include?(top_link) %>
              <%= content_tag :li, link_to(page.title, [page]) %>
         <% end %>
       <% end %>

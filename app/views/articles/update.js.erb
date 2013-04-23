@@ -1,5 +1,3 @@
-
-article = $("input.articles:checked").closest("ul.model_table li")
-article.css({"border": "4px solid #be6208"}).siblings().css({"border":"none"})
-
-
+$("#published_articles").html("<%= j render @published_articles %>").prepend("<h3>Published articles (<%= @published_articles.count %>)")
+$("#scheduled_articles").html("<%= j render @scheduled_articles %>").prepend("<h3>Scheduled articles (<%= @scheduled_articles.count %>)")
+$("#draft_articles").html("<%= j render @draft_articles %>").prepend("<h3>Draft articles (<%= @draft_articles.count %>)")

@@ -1,0 +1,12 @@
+<br class="clear"/>
+<div class="article_partial_container">
+<% @articles_partial.each do |article| %>
+	<%= content_tag_for :div, article, class: "article_in_partial" do %>
+		<%= content_tag :li, article.starts_at, class: "article_title"  %>
+
+		<%= content_tag :li, raw(article.title), class: "article_title"  %>
+		<%= content_tag :li, raw(article.body), class: "article_body"  %>
+	<% end %>
+<% end %>
+<br class="clear"/>
+</div>
