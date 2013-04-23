@@ -1,20 +1,36 @@
 <%= form_for @profile do |f| %>
 	<%= render 'shared/errors', object: @profile %>
 	<div class="field">
-		<%= f.label :name %>
-		<%= f.text_field :name %>
+		<%= f.label :company %>
+		<%= f.text_field :company %>
 	</div>
 	<div class="field">
-		<%= f.label :address %>
-		<%= f.text_field :address %>
+		<%= f.label :quote %>
+		<%= f.text_field :quote %>
 	</div>
 	<div class="field">
-		<%= f.label :phone %>
-		<%= f.text_field :phone %>
+		<%= f.label :address1 %>
+		<%= f.text_field :address1 %>
 	</div>
 	<div class="field">
-		<%= f.label :email %>
-		<%= f.text_field :email %>
+		<%= f.label :address2 %>
+		<%= f.text_field :address2 %>
+	</div>
+	<div class="field">
+		<%= f.label :phone1 %>
+		<%= f.text_field :phone1 %>
+	</div>
+	<div class="field">
+		<%= f.label :phone2 %>
+		<%= f.text_field :phone2 %>
+	</div>
+	<div class="field">
+		<%= f.label :email1 %>
+		<%= f.text_field :email1 %>
+	</div>
+	<div class="field">
+		<%= f.label :email2 %>
+		<%= f.text_field :email2 %>
 	</div>
 	<div class="field">
 		<%= f.label :fax %>
@@ -25,6 +41,6 @@
 	</div>
 <% end %>
 
-
+ 
 
 

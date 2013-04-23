@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
 		@profile = Profile.new(params[:profile])
 		respond_to do |format|
 			if @profile.save
-				format.html { redirect_to @profile, :notice => "The #{@profile.name} profile was successfully created" }
+				format.html { redirect_to @profile, :notice => "The #{@profile.company} profile was successfully created" }
 				format.js
 			else
 				format.html { redirect_to "new", :notice => "profile could not be created. Please fill out all ** fields"}

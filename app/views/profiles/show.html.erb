@@ -1,11 +1,13 @@
 <ul class="model_table">
 	<li>
 		<ul class="instance_detail">
-			<%= content_tag :li, @profile.name, class:"name" %><br />
-			<%= content_tag :li, @profile.address, class:"name" %><br />
-			<%= content_tag :li, @profile.email, class:"name" %><br />
-			<%= content_tag :li, @profile.phone, class:"name" %><br />
-			<%= content_tag :li, @profile.fax, class:"name" %><br />
+			<% hidden_attributes = %w[id created_at updated_at] %>
+				<% @profile.attributes.each do |attr_name, attr_value| %>
+					<% if attr_value  && !hidden_attributes.include?(attr_name) %>
+						<%= content_tag :li, "#{attr_name}: ", class: "profile_title" %>
+						<%= content_tag :li, attr_value, class: "title" %><br />
+				<% end %>
+			<% end %>
 			
 			<ul class="crud_buttons">
 				<%= content_tag :li, link_to("edit", edit_profile_path(@profile)), class:"edit" %>	
