@@ -4,3 +4,5 @@ heroku run rake db:create_partials
 
 top = Article.find(1)
 top.update_attributes(title:"Top Sidebar")
+
+sel all supermodels to visible false

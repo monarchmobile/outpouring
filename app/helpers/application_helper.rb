@@ -22,7 +22,7 @@ module ApplicationHelper
     models = ActiveRecord::Base.connection.tables.collect{|t| t.underscore.singularize.camelize}
     models.each do |m|
       if Supermodel.find(:all, conditions: {name: m }).count == 0
-        Supermodel.create(name: m)
+        Supermodel.create(name: m, visible: false)
       end
     end
     client_models = ["Role", "Page", "Profile", "Article", "Partial", "Link"]
