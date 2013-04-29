@@ -8,6 +8,8 @@ Outpouring::Application.routes.draw do
   resources :profiles
   resources :partials
 
+  match "article_partial", :to => "articles#article_partial"
+
   # blogs
   resources :articles do
     resources :comments
