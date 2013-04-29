@@ -1,13 +1,7 @@
 jQuery ->
 # index
 
-	if $("select#page_current_state").val() == "2"
-		$(this).parent().next(".schedule_container").show()
-	else
-		$(this).parent().next(".schedule_container").hide()
-
 	$("body").delegate "select#page_current_state", "change", ->
-		console.log("hi")
 		if $(this).val() == "1"
 			$("input[type=submit]").val("Save Draft")
 			$(this).parent().next(".schedule_container").hide()
@@ -24,8 +18,9 @@ jQuery ->
     update: ->
       $.post $(this).data("update-url"), $(this).sortable("serialize")
 
+
 	# select status
-  $("body").delegate ".page_ajax_edit select", "change", ->
+	$(".page_ajax_edit select").on "click", ->
     $(this).closest("form").submit()
     $("#published_pages").sortable
     	axis: "y"
@@ -34,7 +29,14 @@ jQuery ->
 	      $.post $(this).data("update-url"), $(this).sortable("serialize")
 	      console.log("2nd sort")
 
-	
+  $("body").delegate ".page_ajax_edit select", "change", ->
+    $(this).closest("form").submit()
+    $("#published_pages").sortable
+    	axis: "y"
+	    handle: ".handle"
+	    update: ->
+	      $.post $(this).data("update-url"), $(this).sortable("serialize")
+	      console.log("2nd sort")
 
 	# page links
   $("body").delegate ".page_ajax_edit .page_link_checkbox", "change", ->
@@ -53,7 +55,10 @@ jQuery ->
 	    checkbox.attr "checked", "checked"
 	    checkbox.closest("form").submit()
 
-	
+	if $("select#page_current_state").val() == "2"
+		$(this).parent().next(".schedule_container").show()
+	else
+		$(this).parent().next(".schedule_container").hide()
 
 	$("#page_starts_at").datepicker
 	        dateFormat: 'yy-mm-dd'

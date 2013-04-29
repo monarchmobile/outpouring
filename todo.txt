@@ -11,3 +11,8 @@ sel all supermodels to visible false
 
 
 **work on approved users vs not approved users, need to know how to proceed on that front
+
+
+for production
+articles current set to 1
+index hide dates if live?
