@@ -6,3 +6,8 @@ top = Article.find(1)
 top.update_attributes(title:"Top Sidebar")
 
 sel all supermodels to visible false
+
+**push to production site
+
+
+**work on approved users vs not approved users, need to know how to proceed on that front

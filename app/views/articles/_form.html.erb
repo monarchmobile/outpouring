@@ -16,25 +16,27 @@
     </div>
 
     <div class="field schedule_fields">
-      <%= f.label :starts_at %>
-      <% if !@article.new_record? %>
-        <%= f.text_field :starts_at, :class => "datepicker", :value => Describe.new(Article).starts_at(@article.id) %>
-      <% else %>
-        <%= f.text_field :starts_at %>
-      <% end %>
-    </div>
-    <div class="field schedule_fields">
-      <%= f.label :ends_at %>
-      <% if !@article.new_record? %>
-        <%= f.text_field :ends_at, :class => "datepicker", :value => Describe.new(Article).ends_at(@article.id) %>
-      <% else %>
-        <%= f.text_field :ends_at %>
-      <% end %>
-    </div>
-
-    <div class="field schedule_fields">
       <%= f.label :current_state %>
       <%= collection_select(:article, :current_state, Status.all, :id, :status_name, option = { :selected => @article.current_state}) %>
+    </div>
+
+    <div class="schedule_container">
+      <div class="field schedule_fields">
+        <%= f.label :starts_at %>
+        <% if !@article.new_record? %>
+          <%= f.text_field :starts_at, :class => "datepicker", :value => Describe.new(Article).starts_at(@article.id) %>
+        <% else %>
+          <%= f.text_field :starts_at %>
+        <% end %>
+      </div>
+      <div class="field schedule_fields">
+        <%= f.label :ends_at %>
+        <% if !@article.new_record? %>
+          <%= f.text_field :ends_at, :class => "datepicker", :value => Describe.new(Article).ends_at(@article.id) %>
+        <% else %>
+          <%= f.text_field :ends_at %>
+        <% end %>
+      </div>
     </div>
 
     <% if can? :edit, Article %>
