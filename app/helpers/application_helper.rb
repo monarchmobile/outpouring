@@ -25,7 +25,7 @@ module ApplicationHelper
         Supermodel.create(name: m, visible: false)
       end
     end
-    client_models = ["Role", "Page", "Profile", "Article", "Partial", "Link"]
+    client_models = ["Role", "Page", "Profile", "Article", "Partial"]
     client_models.each do |cm|
       instance = Supermodel.find_by_name(cm)
       instance.update_attributes(visible: true)
