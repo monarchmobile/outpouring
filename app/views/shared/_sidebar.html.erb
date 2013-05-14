@@ -2,8 +2,6 @@
   <%= content_tag :div, raw(@top_sidebar.body), class: "top_sidebar" %>
 
  <div class="share">
-    <h3>Share Your Memories</h3>
-    <em>Leave a comment for Taye &amp Heidi</em>
     <%= render 'comments/form' if @article && Article.is_featured_article? %>
     <!-- <em>Send an email to Taye &amp Heidi</em>
     <a href="mailto:info@outpouring.us"><%= image_tag 'email.png', size: "200x200", class: "ns"%></a> -->
