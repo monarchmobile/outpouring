@@ -1,4 +1,6 @@
   <% @top_sidebar = Article.find_by_title("Top Sidebar") %>
+  <%= content_tag :h2, "Latest" %>
+  <%= content_tag :h3, @top_sidebar.title %>
   <%= content_tag :div, raw(@top_sidebar.body), class: "top_sidebar" %>
 
  <div class="share">
