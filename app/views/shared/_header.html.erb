@@ -14,14 +14,18 @@
       <% @pages = Describe.new(Page).published.order("position ASC") %>
       <% top_link = Link.find_by_location("top_link").id %>
       <% @pages.each do |page| %>
-        <% if page.link_ids.include?(top_link) %>
-             <%= content_tag :li, link_to(page.title, [page]) %>
+        <% if page.slug == "articles" %>
+          <%= content_tag :li, link_to("Articles", article_index_path) %>
+        <% else %>
+          <% if page.link_ids.include?(top_link) %>
+               <%= content_tag :li, link_to(page.title, [page]) %>
+          <% end %>
         <% end %>
       <% end %>
        
     </ul>
     <ul class="left">
-      <li><a href="/article_index/">Articles</a></li>
+      
     </ul>
 
     <p class="email"><a href="mailto:info@outpouring.us"><%= image_tag 'email.png', size: "30x30", class: "ns left"%>info@outpouring.us</a></p>
