@@ -15,8 +15,8 @@
   end
 
   def article_index
-    sidebar = Article.where(featured:true).last
-    @articles = Article.find(:all, :conditions => ["id != ?", sidebar.id])
+    
+    @articles = Article.all
     home_article_comment_form
   end
 
