@@ -27,7 +27,7 @@ class Describe
   def starts_at(id)
     	object = @model.find(id)
       if !object.starts_at.blank?
-        object.starts_at.strftime("%B %d, %Y")
+        object.starts_at.strftime("%b %d, %Y")
       else
         Date.today
       end
@@ -36,7 +36,7 @@ class Describe
   def ends_at(id)
   	object = @model.find(id)
     if !object.ends_at.blank?
-        object.ends_at.strftime("%B %d, %Y")
+        object.ends_at.strftime("%b %d, %Y")
       else
         Date.today
       end
