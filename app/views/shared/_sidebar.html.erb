@@ -1,7 +1,7 @@
-  <% @top_sidebar = Article.find_by_title("Top Sidebar") %>
+  <% @sidebar = Article.where(featured:true).first %>
   <%= content_tag :h2, "Latest" %>
-  <%= content_tag :h3, @top_sidebar.title %>
-  <%= content_tag :div, raw(@top_sidebar.body), class: "top_sidebar" %>
+  <%= content_tag :h3, @sidebar.title %>
+  <%= content_tag :div, raw(@sidebar.body), class: "top_sidebar" %>
 
  <div class="share">
     <%= render 'comments/form' if @article && Article.is_featured_article? %>
