@@ -1,7 +1,7 @@
  class ArticlesController < ApplicationController 
   # GET /articles
   # GET /articles.json
-  before_filter :authenticate_user!, :except => [:show] # devise method
+  before_filter :authenticate_user!, :except => [:show, :article_index] # devise method
   layout :resolve_layout
 
   def index
