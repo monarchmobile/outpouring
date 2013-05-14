@@ -15,7 +15,7 @@
   end
 
   def article_index
-    sidebar = Article.find_by_title("Top Sidebar")
+    sidebar = Article.where(featured:true).last
     @articles = Article.find(:all, :conditions => ["id != ?", sidebar.id])
     home_article_comment_form
   end

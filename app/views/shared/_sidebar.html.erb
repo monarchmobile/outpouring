@@ -1,4 +1,4 @@
-  <% @sidebar = Article.where(featured:true).first %>
+  <% @sidebar = Article.where(featured:true).last %>
   <%= content_tag :h2, "Latest" %>
   <%= content_tag :h3, @sidebar.title %>
   <%= content_tag :div, raw(@sidebar.body), class: "top_sidebar" %>
