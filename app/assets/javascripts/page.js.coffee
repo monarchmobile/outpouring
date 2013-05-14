@@ -1,7 +1,13 @@
 jQuery ->
 # index
 
-	$("body").delegate "select#page_current_state", "change", ->
+  $("#published_pages").sortable
+    axis: "y"
+    handle: ".handle"
+    update: ->
+      $.post $(this).data("update-url"), $(this).sortable("serialize")
+
+  $("body").delegate "select#page_current_state", "change", ->
 		if $(this).val() == "1"
 			$("input[type=submit]").val("Save Draft")
 			$(this).parent().next(".schedule_container").hide()
@@ -11,14 +17,7 @@ jQuery ->
 		else if $(this).val() == "3"
 			$("input[type=submit]").val("Publish Now")
 			$(this).parent().next(".schedule_container").hide()
-
-  $("#published_pages").sortable
-    axis: "y"
-    handle: ".handle"
-    update: ->
-      $.post $(this).data("update-url"), $(this).sortable("serialize")
-
-
+			
 	# select status
 	$(".page_ajax_edit select").on "click", ->
     $(this).closest("form").submit()

@@ -16,3 +16,14 @@ sel all supermodels to visible false
 for production
 articles current set to 1
 index hide dates if live?
+
+
+order the article tab within the page tab index
+
+page sort
+
+
+article tab sort
+put a fake page in with a top link position it in four position
+
+as interating over links, if article, change link address
