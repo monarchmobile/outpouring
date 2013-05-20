@@ -10,6 +10,7 @@ hand.jpg: hand-0f38a5823f145e1784d10fa47f4d605d.jpg
 icons.png: icons-120f33af11668012996a351a44f179e9.png
 logo3.png: logo3-5fb66a71653e8272f25a5e1154c467da.png
 logo4.png: logo4-08c38b42a54c1afec7824fdca14afece.png
+logo5.png: logo5-6f6a0f0e4882f9974964471924929434.png
 menu_shadow.png: menu_shadow-a21bcc08889a5274aa6f7e85f867ca96.png
 pastors-mark-heidi.jpg: pastors-mark-heidi-6ff62443f6c5b2ec33e61e2c5f1f5f44.jpg
 prayer.jpg: prayer-6f733cf03b5cd267fccbd0fb0b3fe76e.jpg
@@ -20,7 +21,7 @@ taye.jpg: taye-fe2068a0c24512d023d7e460003f043e.jpg
 water.jpg: water-ff63959fbf73fccbedd88f6923fd3cda.jpg
 white-opac.png: white-opac-a179d33df263b0fd8218ebb875d97bba.png
 application.js: application-ca646b4e56e91afb2f765debdb266aeb.js
-application.css: application-dcf2ce781317180a008d6f46c42a73b0.css
+application.css: application-dec0603013d684a17a2dd99f89cefe15.css
 static_pages.css: static_pages-a89334e7886b555b08677a491dcd6f83.css
 ckeditor/application.js: ckeditor/application-83e6bb7625a30fc6ca17519f728f5381.js
 ckeditor/config.js: ckeditor/config-0edaaad044406459a59959d6554b937f.js
