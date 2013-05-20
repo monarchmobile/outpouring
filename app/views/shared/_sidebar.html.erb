@@ -1,10 +1,12 @@
   <% @sidebar = Article.where(featured:true).last %>
-  <%= content_tag :h2, "Latest" %>
-  <%= content_tag :h3, @sidebar.title %>
-  <%= content_tag :div, raw(@sidebar.body), class: "top_sidebar" %>
+  <% if !@sidebar.blank? %>
+	  <%= content_tag :h2, "Latest" %>
+	  <%= content_tag :h3, @sidebar.title %>
+	  <%= content_tag :div, raw(@sidebar.body), class: "top_sidebar" %>
 
- <div class="share">
-    <%= render 'comments/form' if @article && Article.is_featured_article? %>
-    <!-- <em>Send an email to Taye &amp Heidi</em>
-    <a href="mailto:info@outpouring.us"><%= image_tag 'email.png', size: "200x200", class: "ns"%></a> -->
- </div>
+	 <div class="share">
+	    <%= render 'comments/form' if @article && Article.is_featured_article? %>
+	    <!-- <em>Send an email to Taye &amp Heidi</em>
+	    <a href="mailto:info@outpouring.us"><%= image_tag 'email.png', size: "200x200", class: "ns"%></a> -->
+	 </div>
+	<% end %>
